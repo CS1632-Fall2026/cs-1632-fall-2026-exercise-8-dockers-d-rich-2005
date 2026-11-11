@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const BASE = 'https://cs1632.appspot.com';
+const BASE = 'http://localhost:8080';
 
 const catNames = (page) => page.locator('#listing li');
 const catPhotos = (page) => page.locator('ol li');
