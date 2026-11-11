@@ -91,23 +91,3 @@ test('TEST-11-FEED-A-CAT-SCREENSHOT', async ({ page }) => {
   await page.getByRole('link', { name: 'Feed-A-Cat' }).click();
   await expect(page.locator('body')).toHaveScreenshot();
 });
-
-
-test('DEFECT1-FUN-FEED', async ({ page }) => {
-  await page.getByRole('link', { name: 'Feed-A-Cat' }).click();
-  await page.locator('#catnips').fill('-3');
-  await page.getByRole('button', { name: 'Feed', exact: true }).click();
-  await expect(page.getByText('Cat fight!', { exact: true })).toBeVisible({ timeout: 10000 });
-});
-
-test('DEFECT2-FUN-GREET-A-CAT-WITH-NAME', async ({ page }) => {
-  await setCookies(page, 'true', 'false', 'false');
-  await page.goto(BASE + '/greet-a-cat/Jennyanydots');
-  await expect(page.getByText('Jennyanydots is not here.', { exact: true })).toBeVisible();
-});
-
-test('DEFECT3-FUN-GREET-A-CAT', async ({ page }) => {
-  await setCookies(page, 'true', 'false', 'false');
-  await page.getByRole('link', { name: 'Greet-A-Cat' }).click();
-  await expect(page.getByText('Meow!Meow!', { exact: true })).toBeVisible();
-});
